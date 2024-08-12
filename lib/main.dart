@@ -107,7 +107,7 @@ class CubePainter extends CustomPainter {
 
     // Rotate the points around the Y-axis
     final rotationMatrix = vector_math.Matrix4.rotationY(angle);
-    // final rotationMatricX = vector_math.Matrix4.rotationX(cos(15));
+    // final rotationMatricX = vector_math.Matrix4.rotationX(0.1);
 
     final transformedPoints = points.map((point) {
       // final transformedPoint = point.clone();
@@ -142,12 +142,12 @@ class CubePainter extends CustomPainter {
     }
 
     // Draw the edges of the cube
-    // for (var i = 0; i < modelToDraw.lines.length; ++i) {
-    //   final line = modelToDraw.lines[i]; // [0, 1]
-    //   final startPoint = transformedPoints[line[0]];
-    //   final endPoint = transformedPoints[line[1]];
-    //   _drawLine(canvas, paint, startPoint, endPoint);
-    // }
+    for (var i = 0; i < modelToDraw.lines.length; ++i) {
+      final line = modelToDraw.lines[i]; // [0, 1]
+      final startPoint = transformedPoints[line[0]];
+      final endPoint = transformedPoints[line[1]];
+      _drawLine(canvas, paint, startPoint, endPoint);
+    }
   }
 
   void _drawLine(Canvas canvas, Paint paint, vector_math.Vector3 p1, vector_math.Vector3 p2) {
